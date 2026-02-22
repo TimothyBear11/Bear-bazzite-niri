@@ -4,4 +4,4 @@ A custom image based on Bazzite with the intention to keep as close to Bazzite a
 
 ## How I use this
 
-I don't use my laptop often, but when I do, it's running bazzite-niri. I've tried all kinds of tweaks to KDE and Gnome, and nothing feels better than niri. The scrolling WM combined with excellent focus handling and default keybinds makes niri the best-feeling way to use my laptop.
+I don't use my laptop often, but when I do, it's running bazzite-niri. I've tried all kinds of tweaks to KDE and Gnome to make using my laptop feel effortless. However, the scrolling WM combined with excellent focus handling and default keybinds makes niri the best-feeling way to use my laptop.
