@@ -19,6 +19,7 @@ dnf5 makecache
 ### Remove full KDE Plasma (we're going Niri + Noctalia)
 dnf5 -y remove plasma-workspace plasma-* kde-*
 
+
 ### Install packages
 # All apps from your list that are best as layered RPMs (native integration, system-wide CLI tools, Niri ecosystem, minimal KDE apps, etc.)
 # RPMFusion is enabled by default in Bazzite/ublue images
