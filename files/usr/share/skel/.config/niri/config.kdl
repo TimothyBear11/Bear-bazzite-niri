@@ -93,14 +93,10 @@ layout {
     }
 }
 
-spawn-at-startup "noctalia-shell"
+spawn-at-startup "qs" "-c" "noctalia-shell"
 spawn-at-startup "steam"
 
-// To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
-// spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
-
 hotkey-overlay {
-    // Uncomment this line to disable the "Important Hotkeys" pop-up at startup.
     skip-at-startup
 }
 
@@ -142,11 +138,11 @@ layer-rule {
 binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
-    Mod+D { spawn  "noctalia-shell" "ipc" "call" "launcher" "toggle"; }
-    Mod+F1 { spawn "noctalia-shell" "ipc" "call" "controlCenter" "toggle"; }
-    Mod+F2 { spawn "noctalia-shell" "ipc" "call" "settings" "toggle"; }
-    Mod+F3 { spawn "noctalia-shell" "ipc" "call" "launcher" "clipboard"; }
-    Mod+F4 { spawn "noctalia-shell" "ipc" "call" "sessionsMenu" "toggle"; }
+    Mod+D { spawn  "qs" "-c" "noctalia-shell" "ipc" "call" "launcher" "toggle"; }
+    Mod+F1 { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "controlCenter" "toggle"; }
+    Mod+F2 { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "settings" "toggle"; }
+    Mod+F3 { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "launcher" "clipboard"; }
+    Mod+F4 { spawn "qs" "-c" "noctalia-shell" "ipc" "call" "sessionsMenu" "toggle"; }
     Mod+K { spawn "kate"; }
     Mod+B { spawn "floorp"; }
     Mod+M { spawn "spotify"; }
@@ -161,7 +157,7 @@ binds {
     Mod+T { spawn "Telegram"; }
     Mod+P { spawn "positron"; }
     Mod+A { spawn "apostrophe"; }
-    Mod+L { spawn "lm-studio"; }
+    
 
     Super+Alt+S allow-when-locked=true hotkey-overlay-title=null { spawn-sh "pkill orca || exec orca"; }
 
@@ -255,7 +251,3 @@ binds {
     Mod+Shift+P { power-off-monitors; }
 }
 
-
-
-
-include "./noctalia.kdl"
