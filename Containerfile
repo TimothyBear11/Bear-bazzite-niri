@@ -26,3 +26,4 @@ RUN bootc container lint
 
 ### Copying dotfiles
 COPY files/usr/share/skel /usr/share/skel
+COPY files/usr/etc/skel /usr/etc/skel
