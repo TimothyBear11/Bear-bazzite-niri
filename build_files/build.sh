@@ -8,16 +8,6 @@ dnf5 -y install \
     https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm \
     https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 
-### Add Antigravity repo (for the Antigravity AI IDE)
-tee /etc/yum.repos.d/antigravity.repo > /dev/null << EOF
-[antigravity-rpm]
-name=Antigravity RPM Repository
-baseurl=https://us-central1-yum.pkg.dev/projects/antigravity-auto-updater-dev/antigravity-rpm
-enabled=1
-gpgcheck=1
-gpgkey=https://us-central1-yum.pkg.dev/projects/antigravity-auto-updater-dev/antigravity-rpm/gpg
-EOF
-
 dnf5 makecache
 
 ### Remove full KDE Plasma (we're going Niri + Noctalia)
@@ -35,7 +25,6 @@ dnf5 -y install \
     kitty \
     cava \
     wlsunset \
-    antigravity \
     dolphin \
     kate \
     ark \
