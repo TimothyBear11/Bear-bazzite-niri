@@ -33,11 +33,8 @@ dnf5 -y install \
     gnome-keyring \
     xwayland-satellite \
     kitty \
-    fish \
-    fastfetch \
     cava \
     ddcutil \
-    cliphist \              # from Terra
     wlsunset \
     antigravity \
     dolphin \
