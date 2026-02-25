@@ -1,0 +1,100 @@
+# Starship Prompt – Clean & Adaptive for dynamic theming
+add_newline = false
+
+# Prompt layout: path → git info → duration → prompt
+format = """
+$directory$git_branch$git_state$git_status $cmd_duration
+$character
+"""
+
+# -------------------
+# Prompt symbol (FIXED)
+# -------------------
+[character]
+# Styling MUST live inside the symbol itself
+success_symbol = "[➜ ](bold)"
+error_symbol   = "[✗ ](bold red)"
+
+# NOTE:
+# No `style` or `symbol_style` keys allowed here.
+# This is why your warnings occurred.
+
+# -------------------
+# Directory
+# -------------------
+[directory]
+home_symbol = " "
+read_only = " "
+truncation_length = 3
+format = "[$path]($style) "
+style = "bold" # intentionally neutral for Matugen / Noctalia
+
+[directory.substitutions]
+"Desktop"   = ""
+"Documents" = ""
+"Downloads" = ""
+"Music"     = "󰎈"
+"Pictures"  = ""
+"Videos"    = ""
+"GitHub"    = "󰊤"
+
+# -------------------
+# Git branch
+# -------------------
+[git_branch]
+symbol = " "
+format = "[$symbol$branch]($style) "
+style = "bold cyan"
+truncation_length = 12
+truncation_symbol = "…"
+
+# -------------------
+# Git state (rebase, merge, etc.)
+# -------------------
+[git_state]
+format = "[$state]($style) "
+style = "bold yellow"
+
+# -------------------
+# Git status (cleaned + compact)
+# -------------------
+[git_status]
+format = "[$all_status$ahead_behind]($style) "
+style = "dimmed"
+
+conflicted = "⚡"
+ahead      = "⬆"
+behind     = "⬇"
+diverged   = "⬆⬇"
+untracked  = "?"
+staged     = "+"
+modified   = "~"
+renamed    = "»"
+deleted    = "✘"
+stashed    = "≡"
+
+# -------------------
+# Command duration
+# -------------------
+[cmd_duration]
+min_time = 2_000
+format = "[$duration]($style) "
+style = "dimmed yellow"
+
+# -------------------
+# Username (kept optional)
+# -------------------
+[username]
+disabled = true
+
+# -------------------
+# Time (optional ambient info)
+# -------------------
+[time]
+disabled = true
+
+# -------------------
+# Package module
+# -------------------
+[package]
+disabled = true
