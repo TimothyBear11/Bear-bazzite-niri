@@ -34,15 +34,12 @@ dnf5 -y install \
     xwayland-satellite \
     kitty \
     cava \
-    ddcutil \
     wlsunset \
     antigravity \
     dolphin \
     kate \
     ark \
-    telegram-desktop \      # now from RPM Fusion
     neovim \
-    zed \                   # from Terra (use zed-nightly if you want bleeding-edge)
     direnv \
     fzf \
     zoxide \
