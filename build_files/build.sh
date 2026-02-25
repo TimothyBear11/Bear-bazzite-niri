@@ -4,6 +4,10 @@ set -ouex pipefail
 ### Add Terra Repo (for noctalia-shell, zed, and more)
 dnf5 -y install terra-release
 
+dnf5 -y install \
+    https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm \
+    https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+
 ### Add Antigravity repo (for the Antigravity AI IDE)
 tee /etc/yum.repos.d/antigravity.repo > /dev/null << EOF
 [antigravity-rpm]
@@ -23,6 +27,7 @@ dnf5 -y remove plasma-workspace plasma-* kde-*
 ### Install packages
 # All apps from your list that are best as layered RPMs (native integration, system-wide CLI tools, Niri ecosystem, minimal KDE apps, etc.)
 # RPMFusion is enabled by default in Bazzite/ublue images
+### Install layered RPMs (only the ones reliably available)
 dnf5 -y install \
     niri \
     gnome-keyring \
@@ -30,34 +35,32 @@ dnf5 -y install \
     kitty \
     fish \
     fastfetch \
-    vesktop \
-    noctalia-shell \
     cava \
     ddcutil \
-    cliphist \
+    cliphist \              # from Terra
     wlsunset \
     antigravity \
     dolphin \
     kate \
     ark \
-    telegram-desktop \
+    telegram-desktop \      # now from RPM Fusion
     neovim \
-    zed \
+    zed \                   # from Terra (use zed-nightly if you want bleeding-edge)
     direnv \
-    eza \
     fzf \
     zoxide \
-    starship \
     bat \
     gh \
     nodejs \
     python3-pip
 
-### Post-install: npm & pip tools (gemini-cli and pywalfox + pywal)
-# gemini-cli (your "gemeni-cli" — Google Gemini terminal agent)
-npm install -g @google/gemini-cli
+dnf5 copr enable atim/starship
+dnf5 -y install starship
 
-# pywalfox (Firefox/Theming) + pywal (required for it to work)
+
+
+### Then your npm/pip installs as before
+npm install -g @google/gemini-cli
 pip3 install --break-system-packages pywal pywalfox
 
 ### Systemd setup (kept from your original + Niri focus)
