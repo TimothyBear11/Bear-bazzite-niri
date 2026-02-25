@@ -23,3 +23,6 @@ RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
 ### LINTING
 ## Verify final image and contents are correct.
 RUN bootc container lint
+
+### Copying dotfiles
+COPY files/usr/share/skel /usr/share/skel
