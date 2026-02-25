@@ -37,11 +37,6 @@ dnf5 -y install \
     nodejs \
     python3-pip
 
-dnf5 copr enable atim/starship
-dnf5 -y install starship
-
-
-
 ### Then your npm/pip installs as before
 npm install -g @google/gemini-cli
 pip3 install --break-system-packages pywal pywalfox
